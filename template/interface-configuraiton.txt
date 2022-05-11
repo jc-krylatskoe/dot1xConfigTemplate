@@ -1,0 +1,39 @@
+radius-server attribute 6 on-for-login-auth
+radius-server attribute 6 support-multiple
+radius-server attribute 8 include-in-access-req
+radius-server attribute 25 access-request include
+radius-server attribute 31 mac format ietf upper-case
+radius-server attribute 31 send nas-port-detail mac-only
+radius-server vsa send
+radius-server dead-criteria time 5 tries 3
+radius-server deadtime 3
+
+
+radius server RADIUS_usmfise02_3.45.249.208
+  key cisco
+  address ipv4 3.45.249.208 auth-port 1812 acct-port 1813
+  automate-tester username radius-test ignore-acct-port probe-on
+
+
+template 1X_MAB
+ dot1x pae authenticator
+ switchport nonegotiate
+ switchport mode access
+ mab
+ access-session host-mode multi-auth
+ access-session port-control auto
+ authentication periodic
+ authentication timer reauthenticate server
+ service-policy type control subscriber DOT1X-DEFAULT
+
+
+interface gig1/0/2
+ ip access-group ACL-ISE-DEFAULT in
+ source template 1X_MAB
+ dot1x timeout tx-period 7
+ dot1x max-req 3
+ dot1x max-reauth-req 3
+
+
+
+

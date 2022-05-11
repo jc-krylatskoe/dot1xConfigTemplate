@@ -1,0 +1,74 @@
+class-map type control subscriber match-all DOT1X_TIMEOUT
+ match method dot1x
+ match result-type method dot1x authoritative
+
+
+class-map type control subscriber match-any AAA-DOWN-AUTH
+  match authorization-status authorized
+  match result-type aaa-timeout
+class-map type control subscriber match-any AAA-DOWN-UNAUTH
+  match authorization-status unauthorized
+  match result-type aaa-timeout
+class-map type control subscriber match-all DOT1X-FAILED
+  match method dot1x
+  match result-type method dot1x authoritative
+class-map type control subscriber match-all DOT1X-NO-RESP
+  match method dot1x
+  match result-type method dot1x agent-not-found
+class-map type control subscriber match-all MAB-FAILED
+  match method mab
+  match result-type method mab authoritative
+policy-map type control subscriber PROFILE-ONLY
+  event session-started
+    10 class always
+      10 authorize
+
+policy-map type control subscriber DOT1X-DEFAULT
+  event session-started match-all
+    10 class always do-until-failure
+      10 authenticate using dot1x priority 10
+      20 authenticate using mab priority 20
+  event violation match-all
+    10 class always do-until-failure
+      10 replace
+
+  event agent-found match-all
+    10 class always do-until-failure
+      10 terminate mab
+      20 authenticate using dot1x retries 2 retry-time 0 priority 10
+	  
+  event inactivity-timeout match-all
+    10 class always do-until-failure
+      10 clear-session
+
+  event authentication-failure match-first
+    10 class DOT1X-FAILED do-until-failure
+      10 terminate dot1x
+      20 authenticate using mab priority 20
+    20 class AAA-DOWN-UNAUTH do-until-failure
+      10 activate service-template CRITICAL_TEMPLATE
+      20 activate service-template CRITICAL_VOICE_TEMPLATE
+      30 authorize
+      40 pause reauthentication
+    30 class AAA-DOWN-AUTH do-until-failure
+      10 pause reauthentication
+      20 authorize
+    40 class DOT1X-NO-RESP do-until-failure
+      10 terminate dot1x
+      20 authenticate using mab priority 20
+    50 class MAB-FAILED do-until-failure
+      10 terminate mab
+      20 authentication-restart 60
+	60 class DOT1X_TIMEOUT do-until-failure
+	  10 terminate dot1x
+	  20 authenticate using mab priority 20
+    70 class always do-until-failure
+      10 terminate dot1x
+      20 terminate mab
+      30 authentication-restart 60
+  event aaa-available match-all
+    10 class always do-until-failure
+      10 clear-session
+
+
+

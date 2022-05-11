@@ -1,0 +1,107 @@
+aaa new-model
+aaa group server radius RADIUS-ISE
+  server name RADIUS_usmfise02_3.45.249.208
+  ip vrf forwarding Mgmt-vrf
+  
+  
+aaa authentication dot1x default group RADIUS-ISE
+aaa authorization config-commands
+aaa authorization exec default group TACACS-ISE local if-authenticated
+aaa authorization network default group RADIUS-ISE
+aaa accounting update newinfo periodic 2880
+aaa accounting identity default start-stop group RADIUS-ISE
+
+aaa server radius dynamic-author
+  client 3.45.249.208 vrf Mgmt-vrf server-key cisco
+  auth-type any
+  
+device-sensor filter-list cdp list sensor-cdp-list
+  tlv name device-name
+  tlv name address-type
+  tlv name capabilities-type
+  tlv name platform-type
+device-sensor filter-list lldp list sensor-lldp-list
+  tlv name system-name
+  tlv name system-description
+  tlv name system-capabilities
+device-sensor filter-list dhcp list sensor-dhcp-list
+  option name host-name
+  option name requested-address
+  option name parameter-request-list
+  option name class-identifier
+  option name client-identifier
+  option name user-class-id
+device-sensor filter-spec dhcp include list sensor-dhcp-list
+device-sensor filter-spec lldp include list sensor-lldp-list
+device-sensor filter-spec cdp include list sensor-cdp-list
+device-sensor notify all-changes
+access-session attributes filter-list list access-session-list-acct
+  cdp
+  lldp
+  dhcp
+  
+access-session attributes filter-list list access-session-list-auth
+  vlan-id
+access-session accounting attributes filter-spec include list access-session-list-acct
+access-session authentication attributes filter-spec include list access-session-list-auth
+
+ip dhcp snooping vlan 1-1024
+no ip dhcp snooping information option
+ip dhcp snooping
+ip dhcp snooping trust
+
+
+device-tracking tracking
+device-tracking tracking auto-source fallback 198.18.1.1 255.255.255.255 override
+
+device-tracking policy device-tracking-policy
+  no protocol udp
+  no protocol ndp
+  no protocol dhcp6
+  tracking enable
+
+device-tracking policy device-tracking-uplink-policy
+  trusted-port
+  device-role switch
+  no protocol udp
+
+vlan configuration 1-1024
+  device-tracking attach-policy device-tracking-policy
+
+dot1x system-auth-control
+dot1x critical eapol
+service-template CRITICAL_TEMPLATE
+  access-group ACL-ISE-PERMIT-ANY
+service-template CRITICAL_VOICE_TEMPLATE
+  voice vlan
+  access-group ACL-ISE-PERMIT-ANY
+  
+lldp run
+
+!!!
+! dot1x policies
+!!!
+
+ip http server
+ip http active-session-modules none
+
+ip access-list extended ACL-ISE-DEFAULT
+  10 permit udp any eq bootpc any eq bootps
+  20 permit udp any any eq domain
+  30 permit icmp any any
+  40 permit udp any any eq tftp
+  50 permit ip any host 3.45.249.208 
+  100 deny ip any any
+  
+ip access-list extended ACL-ISE-PERMIT-ANY
+  10 permit ip any any
+
+ip access-list extended ACL-ISE-REDIRECT
+  10 deny udp any eq bootpc any eq bootps
+  20 deny udp any any eq domain
+  30 deny tcp any host 3.45.249.208 eq 8443
+  50 permit ip any any
+
+
+ip radius source-interface GigabitEthernet0/0 vrf Mgmt-vrf
+
