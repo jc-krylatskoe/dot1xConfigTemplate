@@ -1,4 +1,9 @@
-!!!! WHEN ISE SERVER IS NOT REACHABLE !!!!
+# show access-session outputs
+Examples of **show access-session** command outputs on interface,
+where flexconnect AP is connected (IP = 3.45.248.102) and one wireless client via AP (IP = 198.18.3.16):
+
+## When ISE server is not reachable
+```
 c3850-lab#show access-session int gig1/0/3 details
             Interface:  GigabitEthernet1/0/3
                IIF-ID:  0x158F06D4
@@ -64,9 +69,10 @@ Method status list:
        Method           State
         dot1x           Stopped
           mab           Authc Failed
+```
 
-
-!!!! WHEN ISE SERVER BECOMES REACHABLE !!!!
+## When ISE server becomes reachable
+```
 c3850-lab#show access-session int gig1/0/3 details
             Interface:  GigabitEthernet1/0/3
                IIF-ID:  0x11201CF3
@@ -129,3 +135,4 @@ Method status list:
        Method           State
         dot1x           Stopped
           mab           Authc Success
+```
