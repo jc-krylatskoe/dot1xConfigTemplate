@@ -16,7 +16,7 @@ radius server <RADIUS-SERVER-NAME>
 cts credentials id [device-ts-hostname] password [secretpass]
 ```
 
-Notes:
+Notes:<br>
 **pac key [secretkey]** - [secretkey] - it's RADIUS "Shared Secret" configured in NAD settings on ISE<br>
 **cts credentials id [device-ts-hostname] password [secretpass]** - [device-ts-hostname] and [secretpass] same as "Device Id" and "Password" in "Device Authentication Settings" in NAD settings on ISE
 
@@ -30,7 +30,7 @@ cts sxp connection peer [ISE_IP] password default mode local listener hold-time 
 cts sxp log binding-changes
 ```
 
-Notes:
+Notes:<br>
 **cts sxp default password [secretpassword]** - same as "default password for SXP" in "SXP Global Settings" on ISE<br>
 **cts sxp connection peer [ISE_IP]** - must be configured for each VRF in which need to get IP-SGT bindings
 
