@@ -17,7 +17,7 @@ cts credentials id [device-ts-hostname] password [secretpass]
 ```
 
 Notes:
-**pac key [secretkey]** - [secretkey] - it's RADIUS "Shared Secret" configured in NAD settings on ISE
+**pac key [secretkey]** - [secretkey] - it's RADIUS "Shared Secret" configured in NAD settings on ISE<br>
 **cts credentials id [device-ts-hostname] password [secretpass]** - [device-ts-hostname] and [secretpass] same as "Device Id" and "Password" in "Device Authentication Settings" in NAD settings on ISE
 
 
@@ -31,7 +31,7 @@ cts sxp log binding-changes
 ```
 
 Notes:
-**cts sxp default password [secretpassword]** - same as "default password for SXP" in "SXP Global Settings" on ISE
+**cts sxp default password [secretpassword]** - same as "default password for SXP" in "SXP Global Settings" on ISE<br>
 **cts sxp connection peer [ISE_IP]** - must be configured for each VRF in which need to get IP-SGT bindings
 
 # ISE configuration
@@ -60,7 +60,7 @@ cts credentials id <device-ts-hostname> password <secretpass>
 
 ### 3. Configure TrustSec Matrix:
 
-**Work Centers > TrustSec > TrustSec Policy > Egress Policy > Matrix**
+**Work Centers > TrustSec > TrustSec Policy > Egress Policy > Matrix**<br>
 When finished - click "Deploy"
 
 ![image](https://user-images.githubusercontent.com/60174786/177298706-174995f5-1371-4caf-b91b-2fb8c1b1e0a8.png)
@@ -100,7 +100,7 @@ cts sxp connection peer <ISE_IP> password default mode local listener hold-time 
 ![image](https://user-images.githubusercontent.com/60174786/177296918-f3e984d5-143d-49e0-a332-03987a7be009.png)
 
 ### 3. Configure SXP connections to switches
-**Work Centers > TrustSec > SXP > SXP Devices**
+**Work Centers > TrustSec > SXP > SXP Devices**<br>
 Add SXP listeners
 ![image](https://user-images.githubusercontent.com/60174786/177301896-3ce7fa39-8675-4e2f-bb4a-5308fdebd05e.png)
 
