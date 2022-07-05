@@ -101,7 +101,7 @@ cts sxp connection peer <ISE_IP> password default mode local listener hold-time 
 
 ### 3. Configure SXP connections to switches
 **Work Centers > TrustSec > SXP > SXP Devices**<br>
-Add SXP listeners
+Add SXP listeners:
 ![image](https://user-images.githubusercontent.com/60174786/177301896-3ce7fa39-8675-4e2f-bb4a-5308fdebd05e.png)
 
 ### 4. Add test IP-SGT binding
