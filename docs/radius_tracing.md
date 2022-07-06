@@ -39,9 +39,9 @@ Tracelog files are stored in crashinfo tracelogs/ in binary:
 show crashinfo: all | i smd
 ```
 
-Check filesystem where 'crashinfo' mounted:
+Check filesystem where 'crashinfo' mounted:<br>
+**show crashinfo: filesys**
 ```
-show crashinfo: filesys
 Filesystem: crashinfo
 Filesystem Path: /mnt/sd1
 Filesystem Type: ext2
