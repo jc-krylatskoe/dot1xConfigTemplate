@@ -98,3 +98,45 @@ There would be 2 sessions in RADIUS Live logs on ISE for each wireless client:
 - 2nd authentiction - on switchport via MAB
 
 ![image](https://user-images.githubusercontent.com/60174786/177612944-25a5c3a8-ec9d-4ff9-9a83-9b3be5ef9bac.png)
+
+## Check correct config applied on a switchport with AP
+
+**show derived-config interface [interface-name]**<br>
+
+Example:
+```
+show derived-config int gig1/0/3
+
+interface GigabitEthernet1/0/3
+ description AP
+ switchport access vlan 3
+ switchport trunk native vlan 248
+ switchport mode trunk
+ switchport nonegotiate
+ switchport voice vlan 198
+ ip access-group ACL-ISE-DEFAULT in
+ authentication periodic
+ authentication timer reauthenticate server
+ access-session port-control auto
+ access-session interface-template sticky timer 30
+ mab
+ dot1x pae authenticator
+ dot1x timeout tx-period 7
+ dot1x max-req 3
+ dot1x max-reauth-req 3
+ spanning-tree portfast trunk
+ service-policy type control subscriber DOT1X-DEFAULT
+
+```
+
+```
+show run int gig1/0/3
+interface GigabitEthernet1/0/3
+ description AP
+ switchport access vlan 3
+ switchport voice vlan 198
+ ip access-group ACL-ISE-DEFAULT in
+ source template 1X_MAB
+ spanning-tree portfast trunk
+```
+
