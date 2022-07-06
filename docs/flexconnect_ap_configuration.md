@@ -92,6 +92,19 @@ policy-map type control subscriber DOT1X-DEFAULT
    40 pause reauthentication
 ```
 
+### 5. (Optional) Disable device-tracking for wireless client's VLAN
+Configuration to disable device-tracking for wireless client's VLAN (VLAN 3):
+```
+device-tracking policy device-tracking-wireless-clients-policy
+ trusted-port
+ device-role switch
+ no protocol udp
+ tracking disable
+
+vlan configuration 3
+ device-tracking attach-policy device-tracking-wireless-clients-policy
+```
+
 ## Check RADIUS live logs on ISE
 There would be 2 sessions in RADIUS Live logs on ISE for each wireless client:
 - 1st authentication - on AP via dot1x / MAB (might be after 2nd authentication)
