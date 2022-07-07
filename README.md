@@ -9,6 +9,7 @@ Repo to store dot1x switch configurations
 [docs/flexconnect_ap_output.md](https://github.com/jc-krylatskoe/dot1xConfigTemplate/blob/main/docs/flexconnect_ap_output.md) - command outputs for FlexConnect APs solution<br>
 [docs/radius_tracing.md](https://github.com/jc-krylatskoe/dot1xConfigTemplate/blob/main/docs/radius_tracing.md) - command outputs for FlexConnect APs solution<br>
 [docs/trustsec.md](https://github.com/jc-krylatskoe/dot1xConfigTemplate/blob/main/docs/trustsec.md) - details about TrustSec configuration and troubleshooting<br>
+[diagrams/](https://github.com/jc-krylatskoe/dot1xConfigTemplate/tree/main/diagrams) - folder with draw.io lab diagrams<br>
 
 
 ## Notes
