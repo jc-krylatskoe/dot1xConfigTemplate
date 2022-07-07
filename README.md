@@ -1,5 +1,5 @@
 # dot1xConfigTemplate
-Repo to store dot1x switch configurations
+Repo to store dot1x switch configurations / notes from ISE wired/wireless ieMentor lab
 
 ## Repo Index:
 [dot1x-sw-current.cfg](https://github.com/jc-krylatskoe/dot1xConfigTemplate/blob/main/dot1x-sw-current.cfg) - the most up to date switch's lab configuration<br>
