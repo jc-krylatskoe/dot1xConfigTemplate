@@ -1,12 +1,14 @@
-# show access-session outputs
-Examples of **show access-session** command outputs on interface,
-where flexconnect AP is connected (IP = 3.45.248.102) and one wireless client via AP (IP = 198.18.3.16).
+# Sample command outputs
 
 ## Configuration for connection of Flexconnect Access Points
 Details about solution for Flexconnect Access Points:<br>
 [docs/flexconnect_ap_configuration.md](https://github.com/jc-krylatskoe/dot1xConfigTemplate/blob/main/docs/flexconnect_ap_configuration.md)
 
-## When ISE server is not reachable
+## show access-session outputs
+Examples of **show access-session** command outputs on interface,
+where flexconnect AP is connected (IP = 3.45.248.102) and one wireless client via AP (IP = 198.18.3.16).
+
+### When ISE server is not reachable
 ```
 c3850-lab#show access-session int gig1/0/3 details
             Interface:  GigabitEthernet1/0/3
@@ -75,7 +77,7 @@ Method status list:
           mab           Authc Failed
 ```
 
-## When ISE server becomes reachable
+### When ISE server becomes reachable
 ```
 c3850-lab#show access-session int gig1/0/3 details
             Interface:  GigabitEthernet1/0/3
@@ -141,7 +143,7 @@ Method status list:
           mab           Authc Success
 ```
 
-## When device-tracking disabled for wireless client's VLAN
+### When device-tracking disabled for wireless client's VLAN
 Configuration to disable device-tracking for wireless client's VLAN (VLAN 3):
 
 ```
