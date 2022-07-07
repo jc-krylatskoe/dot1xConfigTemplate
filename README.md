@@ -13,6 +13,4 @@ no service-template DEFAULT_LINKSEC_POLICY_MUST_SECURE
 no service-template DEFAULT_LINKSEC_POLICY_SHOULD_SECURE
 ```
 
-
-<script src="https://laingsimon.github.io/render-diagram/drawio-renderer.js"></script>
-<div class="drawio-diagram" data-diagram-url="https://github.com/jc-krylatskoe/dot1xConfigTemplate/blob/main/docs/ieMentor_lab.drawio"></div>
+<img src="https://github.com/jc-krylatskoe/dot1xConfigTemplate/blob/main/docs/ieMentor_lab.drawio.png"/>
