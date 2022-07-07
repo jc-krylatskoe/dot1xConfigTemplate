@@ -1,5 +1,5 @@
 # Sample command outputs
-[Custom foo description](#foo)
+[Configuration for connection of Flexconnect Access Points](#flexap-configuration)
 
 # Foo
 
