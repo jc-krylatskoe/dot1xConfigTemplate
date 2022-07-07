@@ -1,7 +1,7 @@
 # Sample command outputs
 ## Index
 [Configuration for connection of Flexconnect Access Points](#configuration-for-connection-of-Flexconnect-Access-Points)<br>
-[show access-session outputs](#show-access-session-outputs)<br>
+[show access-session outputs](#show-access-session-outputs)<br><br>
 - [When ISE server is not reachable](#when-ise-server-is-not-reachable)<br>
 - [When ISE server becomes reachable](#when-ise-server-becomes-reachable)<br>
 - [When device-tracking disabled for wireless client's VLAN](#when-device-tracking-disabled-for-wireless-clients-vlan)<br>
