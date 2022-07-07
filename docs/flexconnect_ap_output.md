@@ -1,6 +1,10 @@
 # show access-session outputs
 Examples of **show access-session** command outputs on interface,
-where flexconnect AP is connected (IP = 3.45.248.102) and one wireless client via AP (IP = 198.18.3.16):
+where flexconnect AP is connected (IP = 3.45.248.102) and one wireless client via AP (IP = 198.18.3.16).
+
+## Configuration for connection of Flexconnect Access Points
+Details about solution for Flexconnect Access Points:<br>
+[docs/flexconnect_ap_configuration.md](https://github.com/jc-krylatskoe/dot1xConfigTemplate/blob/main/docs/flexconnect_ap_configuration.md)
 
 ## When ISE server is not reachable
 ```
