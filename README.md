@@ -15,4 +15,4 @@ no service-template DEFAULT_LINKSEC_POLICY_SHOULD_SECURE
 ```
 
 ## Lab Diagram
-<img src="https://github.com/jc-krylatskoe/dot1xConfigTemplate/blob/main/docs/ieMentor_lab.drawio.png"/>
+<img src="https://github.com/jc-krylatskoe/dot1xConfigTemplate/blob/main/diagrams/ieMentor_lab.drawio.png"/>
