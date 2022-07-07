@@ -1,4 +1,7 @@
 # Sample command outputs
+[Custom foo description](#foo)
+
+# Foo
 
 ## Configuration for connection of Flexconnect Access Points
 Details about solution for Flexconnect Access Points:<br>
