@@ -5,8 +5,8 @@ Repo to store dot1x switch configurations
 [dot1x-sw-current.cfg](https://github.com/jc-krylatskoe/dot1xConfigTemplate/blob/main/dot1x-sw-current.cfg) - the most up to date switch's lab configuration
 
 
-# Notes
-## The following default commands were deleted from switch's configuration:
+## Notes
+### The following default commands were deleted from switch's configuration:
 ```
 no service-template DEFAULT_CRITICAL_VOICE_TEMPLATE
 no service-template DEFAULT_CRITICAL_DATA_TEMPLATE
