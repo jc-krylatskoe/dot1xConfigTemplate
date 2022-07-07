@@ -1,5 +1,5 @@
 # Sample command outputs
-Index:<br>
+## Index
 [Configuration for connection of Flexconnect Access Points](#Configuration-for-connection-of-Flexconnect-Access-Points)<br>
 [show access-session outputs](#show-access-session-outputs)<br>
 [When ISE server is not reachable](#When-ISE-server-is-not-reachable)<br>
