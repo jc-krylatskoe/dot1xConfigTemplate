@@ -1,5 +1,5 @@
 # Sample command outputs
-[Configuration for connection of Flexconnect Access Points](#flexap-configuration)
+[Configuration for connection of Flexconnect Access Points](#Configuration-for-connection-of-Flexconnect-Access-Points)
 
 # Foo
 
