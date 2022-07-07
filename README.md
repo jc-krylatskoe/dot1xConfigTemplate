@@ -2,7 +2,6 @@
 Repo to store dot1x switch configurations
 
 ## Files in repo:
-**dot1x-sw-current.cfg** 
 [dot1x-sw-current.cfg](https://github.com/jc-krylatskoe/dot1xConfigTemplate/blob/main/dot1x-sw-current.cfg) - the most up to date switch's lab configuration
 
 
