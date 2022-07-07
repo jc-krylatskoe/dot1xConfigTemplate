@@ -153,3 +153,6 @@ interface GigabitEthernet1/0/3
  spanning-tree portfast trunk
 ```
 
+## Sample command outputs
+[docs/flexconnect_ap_output.md](https://github.com/jc-krylatskoe/dot1xConfigTemplate/blob/main/docs/flexconnect_ap_output.md)
+
